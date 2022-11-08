@@ -30,6 +30,10 @@ The function should NOT print anything out
 '''
 
 
+def get_playlist_length(playlist):
+    return len(playlist)
+
+
 '''
 9.0 TODO: Define a function `called play_track`
 It should have two parameters
@@ -37,8 +41,19 @@ It should have two parameters
 -'track' (an integer) - this should be optional, and by default play track 1
 This function should 'play' the song corresponding to the input track #
 For example play_track(my_playlist, 3) should print out:
-'Now playing Track 3: Controversy by Prince' 
+'Now playing Track 3: Controversy by Prince'
 Assuming that the third track in your playlist 'Controversy' by 'Prince'
 This function should ALSO increase the 'plays' value for that song's dictionary by 1
 So, if 'Controversy' has 0 plays so far, it should now be increased to 1
+
 '''
+
+
+def play_track(playlist, track=1):
+
+    if len(playlist) > 0 and track <= len(playlist):
+
+        playlist[track - 1]['plays'] += 1
+        print(
+            f"Now playing Track {track}: {playlist[track - 1]['title']} by {playlist[track - 1]['artist']}")
+        # return f"Now playing Track {track}: {playlist[track - 1]['title']} by {playlist[track - 1]['artist']}" + '\n'
